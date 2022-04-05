@@ -1,0 +1,8 @@
+<p>old-rest works!</p>
+
+<ul class="items">
+    <li (click)="onSelect(department)" *ngFor="let department of departments">
+        <h1><div class="badge bg-secondary">{{department.id}}</div><div [ngClass]="messageClass" data-bs-toggle="tooltip">{{department.name}}</div></h1>        
+    </li>
+</ul>
+

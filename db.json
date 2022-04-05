@@ -1,0 +1,36 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "name": "Suraj",
+      "email": "",
+      "mobileNO": "124567788",
+      "restAddress": "",
+      "restServices": "Chai"
+    },
+    {
+      "id": 2,
+      "name": "Anand Restaurent",
+      "email": "asad@ahasj.com",
+      "mobile": "45646546",
+      "restAddress": "Pata Nahi",
+      "restServices": "Bar"
+    },
+    {
+      "id": 3,
+      "name": "Geeta Bar and Restaurent",
+      "email": "geeta@gmail.com",
+      "mobile": "7985452135",
+      "restAddress": "Kuples House",
+      "restServices": "Bar and Family Restaurent"
+    },
+    {
+      "id": 4,
+      "name": "",
+      "email": "",
+      "mobile": "",
+      "restAddress": "",
+      "restServices": ""
+    }
+  ]
+}

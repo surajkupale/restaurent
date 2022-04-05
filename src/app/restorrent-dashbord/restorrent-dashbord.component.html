@@ -1,0 +1,97 @@
+<nav class="navbar navbar-light bg-dark">
+    <div class="container-fluid">
+    <h2 style="color: aliceblue;"> Restaurent Dashbord </h2>
+    <div class="d-flex">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Restaurent</button>
+    </div>    
+    </div>
+</nav>
+
+<!-- Modal To Add New Restaurent -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add New Restaurent</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup] = "formValue" (ngSubmit)="display(formValue)">
+                <div>
+                    <label for="restName" class="form-label">Restaurent Name</label>
+                    <input class="form-control" id="restName" type="text" formControlName="restName">
+                    <div class="alert alert-danger" *ngIf="formValue.get('restName')?.touched && !formValue.get('restName')?.valid">
+                        <div *ngIf="formValue.get('restName')?.hasError('required')">Restaurent Name Require.</div>
+                    </div>
+                </div>
+                <div>
+                    <label for="emailAdd" class="form-label">Restaurent Email</label>
+                    <input class="form-control" id="emailAdd" type="email" formControlName="emailAdd">
+                    <div class="alert alert-danger" *ngIf="formValue.get('emailAdd')?.touched && !formValue.get('emailAdd')?.valid">
+                        <div *ngIf="formValue.get('emailAdd')?.hasError('required')">Restaurent Email Address Require.</div>
+                    </div>
+                </div>
+                <div>
+                    <label for="mobNO" class="form-label">Restaurent Mobile Number</label>
+                    <input class="form-control" id="mobNO" type="text" formControlName="mobNO">
+                    <div class="alert alert-danger" *ngIf="formValue.get('mobNO')?.touched && !formValue.get('mobNO')?.valid">
+                        <div *ngIf="formValue.get('mobNO')?.hasError('required')">Restaurent Mobile/Phn Number Require.</div>
+                    </div>
+                </div>
+                <div>
+                    <label for="restAdd" class="form-label">Restaurent Address</label>
+                    <input class="form-control" id="restAdd" type="textarea" formControlName="restAdd">
+                    <!-- <div class="alert alert-danger" *ngIf="formValue.get('restAdd')?.touched && !formValue.get('restAdd')?.valid">
+                        <div *ngIf="formValue.get('restAdd')?.hasError('restAdd')">Restaurent Name Require.</div>
+                    </div> -->
+                </div>
+                <div>
+                    <label for="restService" class="form-label">Restaurent Services</label>
+                    <input class="form-control" id="restService" type="textarea" formControlName="restService">
+                    <!-- <div class="alert alert-danger" *ngIf="formValue.get('restService')?.touched && !formValue.get('restService')?.valid">
+                        <div *ngIf="formValue.get('restService')?.hasError('required')">Restaurent Name Require.</div>
+                    </div> -->
+                </div>
+                <!-- <button type="submit">click</button> -->
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="addRestaurent()" data-bs-dismiss="modal">Create Restaurent</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<div class="container-sm">
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Restaurent Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile</th>
+            <th scope="col">Address</th>
+            <th scope="col">Services</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of restData">
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.mobile }}</td>
+            <td>{{ item.restAddress }}</td>
+            <td>{{ item.restServices }}</td>
+            <td>
+                <button class="btn btn-info">Edit</button>&nbsp;
+                <button class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+<!-- <div *ngFor="let item of restData">{{ item }}</div> -->

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
+import { RestService } from './Services/rest-service.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'restorrent';
+  restorrent: any = [];
+
+  constructor(private _restService: RestService){
+    this.restorrent = _restService.getRestorrent();
+    console.log(this.restorrent)
+  }
 }
